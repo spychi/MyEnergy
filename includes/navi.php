@@ -7,19 +7,19 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="index.php">MyEnergy</a>
+    <a class="navbar-brand" href="index.php"><span class="glyphicon glyphicon-stats"></span> MyEnergy</a>
   </div>
 
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav">
-      <li <?php if($activePage == "write") {echo('class="active"');} ?>><a href="write.php">Eingabe</a></li>
-      <li <?php if($activePage == "read") {echo('class="active"');} ?>><a href="read.php">Ausgabe</a></li>
+      <li <?php if($activePage == "write") {echo('class="active"');} ?>><a href="write.php"></span> Eingabe</a></li>
+      <li <?php if($activePage == "read") {echo('class="active"');} ?>><a href="read.php"></span> Ausgabe</a></li>
 
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
-      <li <?php if($activePage == "setup") {echo('class="active"');} ?> ><a href="setup.php">Setup</a></li>
+      <li <?php if($activePage == "setup") {echo('class="active"');} ?> ><a href="setup.php"><span class="glyphicon glyphicon-wrench"></span> Setup</a></li>
     </ul>
   </div>
 </nav>
