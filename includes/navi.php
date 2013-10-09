@@ -15,11 +15,17 @@
     <ul class="nav navbar-nav">
       <li <?php if($activePage == "write") {echo('class="active"');} ?>><a href="write.php"></span> Eingabe</a></li>
       <li <?php if($activePage == "read") {echo('class="active"');} ?>><a href="read.php"></span> Ausgabe</a></li>
-
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
-      <li <?php if($activePage == "setup") {echo('class="active"');} ?> ><a href="setup.php"><span class="glyphicon glyphicon-wrench"></span> Setup</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-wrench"></span> Tools <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li <?php if($activePage == "export") {echo('class="active"');} ?>><a href="export.php">CSV Im/Export</a></li>
+                <li <?php if($activePage == "setup") {echo('class="active"');} ?>><a href="setup.php">DB Setup</a></li>
+            </ul>
+        </li>
     </ul>
   </div>
 </nav>
+<div class="container">

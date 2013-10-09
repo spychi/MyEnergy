@@ -22,33 +22,37 @@
     include("includes/navi.php");
 ?>
 
-   <table class="table">
-       <thead>
-             <tr>
-                <td>Timestap</td>
-                <td>Strom</td>
-                <td>Heizung</td>
-                <td>Wasser</td>
-             </tr>
-         </thead>
-     <tbody>
+<div class="panel panel-default">
 
-     <?php
-         foreach ($row as $r) {
+  <div class="panel-heading">Übersicht</div>
+	   <table class="table">
+	       <thead>
+	             <tr>
+	                <th>Timestap</th>
+	                <th>Strom</th>
+	                <th>Heizung</th>
+	                <th>Wasser</th>
+	             </tr>
+	         </thead>
+	     <tbody>
 
-            $datum = date("d-m-Y - H:i", $r['timestamp']);
+	     <?php
+	         foreach ($row as $r) {
 
-            echo ("<tr>");
-            echo ("<td>" . $datum . "</td>");
-            echo ("<td>" . $r['strom'] . "</td>");
-            echo ("<td>" . $r['heizung'] . "</td>");
-            echo ("<td>" . $r['wasser'] . "</td>");
-            echo ("</tr>");
-        }
-     ?>
+	            $datum = date("d-m-Y - H:i", $r['timestamp']);
 
-      </tbody>
-   </table>
+	            echo ("<tr>");
+	            echo ("<td>" . $datum . "</td>");
+	            echo ("<td>" . $r['strom'] . "</td>");
+	            echo ("<td>" . $r['heizung'] . "</td>");
+	            echo ("<td>" . $r['wasser'] . "</td>");
+	            echo ("</tr>");
+	        }
+	     ?>
+
+	      </tbody>
+	   </table>
+   </div>
 
 
 
