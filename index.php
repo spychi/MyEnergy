@@ -1,4 +1,6 @@
 <?php
+
+    $pageID = "homepage";
     include("includes/header.php");
 
     $activePage = "home";
@@ -25,6 +27,7 @@
 
 	}
 
+
 ?>
 
 <script>
@@ -49,6 +52,8 @@
 
         ]
     }
+
+
 </script>
 
 <canvas id="myChart" class="img-responsive" width="600" height="400"></canvas>

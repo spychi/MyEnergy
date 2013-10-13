@@ -6,6 +6,11 @@
         if( $_GET['action'] == 'write' ){
 
             $ts = $_POST['date_ts'];
+            //$ts = date("d-m-Y - H:i", $_POST['date']);
+
+            //print($ts);
+
+
             $strom = $_POST['strom'];
             $heizung = $_POST['heizung'];
             $wasser = $_POST['wasser'];
@@ -16,7 +21,7 @@
          }
     }
 
-
+    $pageID = "writePage";
     include("includes/header.php");
 
     $activePage = "write";
@@ -30,7 +35,7 @@
     ?>
 
 
-<form action="?action=write" role="form" method="POST">
+<form id="write" action="?action=write" role="form" method="POST">
     <div class="form-group">
         <input type="Number" name="strom" id="strom" placeholder="Strom"/>
     </div>

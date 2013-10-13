@@ -1,18 +1,27 @@
 <?php
     $msg = "";
 
-   $db = new SQLite3('db/database.db');
-   $sql = "SELECT * FROM energie";
-   $result = $db->query($sql);
+    $db = new SQLite3('db/database.db');
+    $sql = "SELECT * FROM energie";
+    $result = $db->query($sql);
 
-   $row = array();
-   $i = 0;
+    $row = array();
+    $i = 0;
+    $prevWasser = 0;
 
-    while($res = $result->fetchArray(SQLITE3_ASSOC)){
+    while($res = $result->fetchArray(SQLITE3_ASSOC)) {
+
         $row[$i]['timestamp'] = $res['timestamp'];
         $row[$i]['strom'] = $res['strom'];
         $row[$i]['heizung'] = $res['heizung'];
         $row[$i]['wasser'] = $res['wasser'];
+
+        if ($i > 1){
+            $row[$i]['wasserGestern'] = $res['wasser'] - $row[$i-1]['wasser'];
+        } else {
+            $row[$i]['wasserGestern'] = "";
+        }
+
         $i++;
     }
 
@@ -32,6 +41,7 @@
 	                <th>Strom</th>
 	                <th>Heizung</th>
 	                <th>Wasser</th>
+                    <th>Wasser Durchschnitt</th>
 	             </tr>
 	         </thead>
 	     <tbody>
@@ -40,12 +50,15 @@
 	         foreach ($row as $r) {
 
 	            $datum = date("d-m-Y - H:i", $r['timestamp']);
+                $wasserGestern =  $r['wasser'];
 
 	            echo ("<tr>");
 	            echo ("<td>" . $datum . "</td>");
 	            echo ("<td>" . $r['strom'] . "</td>");
 	            echo ("<td>" . $r['heizung'] . "</td>");
 	            echo ("<td>" . $r['wasser'] . "</td>");
+
+                echo ("<td>" . $r['wasserGestern'] . "</td>");
 	            echo ("</tr>");
 	        }
 	     ?>
