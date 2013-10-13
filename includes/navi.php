@@ -21,6 +21,8 @@
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-wrench"></span> Tools <b class="caret"></b></a>
             <ul class="dropdown-menu">
+                <li <?php if($activePage == "weather") {echo('class="active"');} ?>><a href="weather.php">Wetter</a></li>
+                <li <?php if($activePage == "costs") {echo('class="active"');} ?>><a href="costs.php">Kosten bearbeiten</a></li>
                 <li <?php if($activePage == "export") {echo('class="active"');} ?>><a href="export.php">CSV Im/Export</a></li>
                 <li <?php if($activePage == "setup") {echo('class="active"');} ?>><a href="setup.php">DB Setup</a></li>
             </ul>
