@@ -12,11 +12,8 @@ $myWeather = new Widget_Weather('myenergy', '0b49a5cdfe324fcef2958f5539197022', 
 
 $wetter = $myWeather->getForecast("DE0004130323");
 
-echo("<pre>");
-//var_dump($wetter);
-echo("</pre>");
 
-$tag = "2013-10-14";
+$tag = "2013-10-15";
 
 // Morgens
 $uhrzeit[0] = "06:00";
