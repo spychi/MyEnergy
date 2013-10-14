@@ -15,14 +15,14 @@ $myWeather = new Widget_Weather('myenergy', '0b49a5cdfe324fcef2958f5539197022', 
 $wetter = $myWeather->getForecast("DE0004130323");
 
 echo("<pre>");
-var_dump($wetter);
+//var_dump($wetter);
 echo("</pre>");
 
-$tag = "2013-10-13";
+$tag = "2013-10-14";
 
 // Morgens
 $uhrzeit[0] = "06:00";
-$imgName[0] = "n_". $wetter["forecast"][$tag][$uhrzeit[0]]["w"] ."_L.png";
+$imgName[0] = "d_". $wetter["forecast"][$tag][$uhrzeit[0]]["w"] ."_L.png";
 $tempMax[0] = $wetter["forecast"][$tag][$uhrzeit[0]]["tx"];
 $tempMin[0] = $wetter["forecast"][$tag][$uhrzeit[0]]["tn"];
 $text[0] = $wetter["forecast"][$tag][$uhrzeit[0]]["w_txt"];
@@ -30,7 +30,7 @@ $niederschlag[0] = $wetter["forecast"][$tag][$uhrzeit[0]]["tx"];
 
 // Mittags
 $uhrzeit[1] = "11:00";
-$imgName[1] = "n_". $wetter["forecast"][$tag][$uhrzeit[1]]["w"] ."_L.png";
+$imgName[1] = "d_". $wetter["forecast"][$tag][$uhrzeit[1]]["w"] ."_L.png";
 $tempMax[1] = $wetter["forecast"][$tag][$uhrzeit[1]]["tx"];
 $tempMin[1] = $wetter["forecast"][$tag][$uhrzeit[1]]["tn"];
 $text[1] = $wetter["forecast"][$tag][$uhrzeit[1]]["w_txt"];
@@ -38,7 +38,7 @@ $niederschlag[1] = $wetter["forecast"][$tag][$uhrzeit[1]]["tx"];
 
 // Abends
 $uhrzeit[2] = "17:00";
-$imgName[2] = "n_". $wetter["forecast"][$tag][$uhrzeit[2]]["w"] ."_L.png";
+$imgName[2] = "d_". $wetter["forecast"][$tag][$uhrzeit[2]]["w"] ."_L.png";
 $tempMax[2] = $wetter["forecast"][$tag][$uhrzeit[2]]["tx"];
 $tempMin[2] = $wetter["forecast"][$tag][$uhrzeit[2]]["tn"];
 $text[2] = $wetter["forecast"][$tag][$uhrzeit[2]]["w_txt"];
