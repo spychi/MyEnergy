@@ -1,4 +1,6 @@
 <?php
+    require_once("includes/main_library.php");
+
     $msg = "";
 
     $db = new SQLite3('db/database.db');
@@ -8,6 +10,7 @@
     $row = array();
     $i = 0;
     $prevWasser = 0;
+
 
     while($res = $result->fetchArray(SQLITE3_ASSOC)) {
 
@@ -25,10 +28,10 @@
         $i++;
     }
 
-    include("includes/header.php");
 
-    $activePage = "read";
-    include("includes/navi.php");
+
+    echo getHTMLHeader("read");
+    echo getNavi("read");
 ?>
 
 <div class="panel panel-default">
@@ -70,5 +73,6 @@
 
 
 
-
-<?php include("includes/footer.php"); ?>
+<?php
+    echo getHTMLFooter();
+?>

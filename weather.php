@@ -1,12 +1,10 @@
 <?php
 
-require_once("includes/weather/Widget_Weather.php");
+    require_once("includes/main_library.php");
 
-$pageID = "homepage";
-include("includes/header.php");
+    echo getHTMLHeader("weather");
+    echo getNavi("weather");
 
-$activePage = "home";
-include("includes/navi.php");
 
 $myWeather = new Widget_Weather('myenergy', '0b49a5cdfe324fcef2958f5539197022', 'json');
 //$searchResult = $myWeather->search("DE0004130323");
@@ -124,3 +122,7 @@ $niederschlag[3] = $wetter["forecast"][$tag][$uhrzeit[3]]["tx"];
     </tbody>
     </table>
 </div>
+
+<?php
+    echo getHTMLFooter();
+?>

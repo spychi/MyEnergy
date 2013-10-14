@@ -1,10 +1,9 @@
 <?php
 
-    $pageID = "homepage";
-    include("includes/header.php");
+    require_once("includes/main_library.php");
 
-    $activePage = "home";
-    include("includes/navi.php");
+    echo getHTMLHeader("homepage");
+    echo getNavi("home");
 
 
 	$db = new SQLite3('db/database.db');
@@ -26,7 +25,6 @@
 		$wasser .= $res['water'] . ", ";
 
 	}
-
 
 ?>
 
@@ -59,4 +57,6 @@
 <canvas id="myChart" class="img-responsive" width="600" height="400"></canvas>
 
 
-<?php include("includes/footer.php"); ?>
+<?php
+    echo getHTMLFooter();
+?>

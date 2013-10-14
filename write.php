@@ -1,4 +1,7 @@
 <?php
+
+    require_once("includes/main_library.php");
+
     $msg = "";
 
     if( isset($_GET['action']) ){
@@ -21,11 +24,10 @@
          }
     }
 
-    $pageID = "writePage";
-    include("includes/header.php");
 
-    $activePage = "write";
-    include("includes/navi.php");
+    echo getHTMLHeader("writePage");
+    echo getNavi("write");
+
 ?>
 
     <?php
@@ -59,5 +61,6 @@
 
 </form>
 
-
-<?php include("includes/footer.php"); ?>
+<?php
+    echo getHTMLFooter();
+?>

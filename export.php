@@ -1,4 +1,6 @@
 <?php
+    require_once("includes/main_library.php");
+
     $msg = "";
 
     if( isset($_GET['action']) ){
@@ -98,10 +100,8 @@
     }
 
 
-    include("includes/header.php");
-
-    $activePage = "export";
-    include("includes/navi.php");
+    echo getHTMLHeader("export");
+    echo getNavi("export");
 ?>
 
     <?php
@@ -121,5 +121,6 @@
     </form>
 
 
-
-<?php include("includes/footer.php"); ?>
+<?php
+    echo getHTMLFooter();
+?>

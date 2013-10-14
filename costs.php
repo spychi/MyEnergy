@@ -1,4 +1,6 @@
 <?php
+    require_once("includes/main_library.php");
+
     $msg = "";
 
     if( isset($_GET['action']) ){
@@ -9,11 +11,9 @@
 
     }
 
+    echo getHTMLHeader("costs");
+    echo getNavi("costs");
 
-    include("includes/header.php");
-
-    $activePage = "costs";
-    include("includes/navi.php");
 ?>
 
     <div class="panel panel-default">
@@ -45,8 +45,6 @@
 
 
 
-
-
-
-
-<?php include("includes/footer.php"); ?>
+<?php
+    echo getHTMLFooter();
+?>
