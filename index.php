@@ -6,7 +6,7 @@
     echo getNavi("home");
 
 
-	$db = new SQLite3('db/database.db');
+	$db = new SQLite3($dbFileName);
 	$sql = "SELECT * FROM energie";
 	$result = $db->query($sql);
 
@@ -50,8 +50,6 @@
 
         ]
     }
-
-
 </script>
 
 <canvas id="myChart" class="img-responsive" width="600" height="400"></canvas>

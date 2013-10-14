@@ -3,7 +3,7 @@
 
     $msg = "";
 
-    $db = new SQLite3('db/database.db');
+    $db = new SQLite3($dbFileName);
     $sql = "SELECT * FROM energie ORDER BY creationdate";
     $result = $db->query($sql);
 

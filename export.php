@@ -40,7 +40,7 @@
             }
 
 
-            $db = new SQLite3('db/database.db');
+            $db = new SQLite3($dbFileName);
             $sql = "SELECT * FROM energie";
             $result = $db->query($sql);
 
@@ -75,7 +75,7 @@
                 //$csv_datei = __DIR__ . '/daten.csv';
 
 
-                $db = new SQLite3('db/database.db');
+                $db = new SQLite3($dbFileName);
 
                 $sql = ".mode csv energie";
                 $db->query($sql);
