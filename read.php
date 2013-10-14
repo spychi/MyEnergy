@@ -2,7 +2,7 @@
     $msg = "";
 
     $db = new SQLite3('db/database.db');
-    $sql = "SELECT * FROM energie";
+    $sql = "SELECT * FROM energie ORDER BY creationdate";
     $result = $db->query($sql);
 
     $row = array();
