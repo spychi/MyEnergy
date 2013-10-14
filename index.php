@@ -18,12 +18,12 @@
 
 	while($res = $result->fetchArray(SQLITE3_ASSOC)){
 
-		$datum = date("d-m-Y - H:i", $res['timestamp']);
+		$datum = date("d-m-Y - H:i", $res['creationdate']);
 
 		$labels .= "'" .$datum . "', ";
-		$strom .= $res['strom'] . ", ";
-		$heizung .= $res['heizung'] . ", ";
-		$wasser .= $res['wasser'] . ", ";
+		$strom .= $res['electricity'] . ", ";
+		$heizung .= $res['heating'] . ", ";
+		$wasser .= $res['water'] . ", ";
 
 	}
 

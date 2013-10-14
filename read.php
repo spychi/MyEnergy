@@ -11,13 +11,13 @@
 
     while($res = $result->fetchArray(SQLITE3_ASSOC)) {
 
-        $row[$i]['timestamp'] = $res['timestamp'];
-        $row[$i]['strom'] = $res['strom'];
-        $row[$i]['heizung'] = $res['heizung'];
-        $row[$i]['wasser'] = $res['wasser'];
+        $row[$i]['creationdate'] = $res['creationdate'];
+        $row[$i]['electricity'] = $res['electricity'];
+        $row[$i]['heating'] = $res['heating'];
+        $row[$i]['water'] = $res['water'];
 
         if ($i > 1){
-            $row[$i]['wasserGestern'] = $res['wasser'] - $row[$i-1]['wasser'];
+            $row[$i]['wasserGestern'] = $res['water'] - $row[$i-1]['water'];
         } else {
             $row[$i]['wasserGestern'] = "";
         }
@@ -49,14 +49,14 @@
 	     <?php
 	         foreach ($row as $r) {
 
-	            $datum = date("d-m-Y - H:i", $r['timestamp']);
-                $wasserGestern =  $r['wasser'];
+	            $datum = date("d-m-Y - H:i", $r['creationdate']);
+                $wasserGestern =  $r['water'];
 
 	            echo ("<tr>");
 	            echo ("<td>" . $datum . "</td>");
-	            echo ("<td>" . $r['strom'] . "</td>");
-	            echo ("<td>" . $r['heizung'] . "</td>");
-	            echo ("<td>" . $r['wasser'] . "</td>");
+	            echo ("<td>" . $r['electricity'] . "</td>");
+	            echo ("<td>" . $r['heating'] . "</td>");
+	            echo ("<td>" . $r['water'] . "</td>");
 
                 echo ("<td>" . $r['wasserGestern'] . "</td>");
 	            echo ("</tr>");

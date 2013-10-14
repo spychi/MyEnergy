@@ -6,7 +6,8 @@
         if( $_GET['action'] == 'create_table' ){
 
             $db = new SQLite3('db/database.db');
-            $db->exec('CREATE TABLE energie (timestamp STRING, strom STRING, heizung STRING, wasser STRING)');
+            $db->exec('CREATE TABLE energie (creationdate TEXT, electricity REAL, heating REAL, water REAL)');
+
             $msg = "Table angelegt!";
 
         } else if( $_GET['action'] == 'drop_table'){
