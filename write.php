@@ -31,7 +31,7 @@
     ?>
 
 
-<form id="write" action="?action=write" role="form" method="POST">
+<form id="write" action="?action=write" role="form" method="POST" novalidate="novalidate">
     <div class="form-group">
         <input type="Number" name="strom" id="strom" placeholder="Strom"/>
     </div>
