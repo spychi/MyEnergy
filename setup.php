@@ -1,8 +1,6 @@
 <?php
     require_once("includes/main_library.php");
 
-
-
     $msg = "";
 
     if( isset($_GET['action']) ){
@@ -10,6 +8,7 @@
         if( $_GET['action'] == 'create_table' ){
 
             $db = new SQLite3($dbFileName);
+            // YYYY-MM-DD HH:MM:SS.SSS
             $db->exec('CREATE TABLE energie (creationdate TEXT, electricity REAL, heating REAL, water REAL)');
 
             $msg = "Table angelegt!";

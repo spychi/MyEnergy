@@ -8,22 +8,16 @@
 
         if( $_GET['action'] == 'write' ){
 
-            $ts = $_POST['date_ts'];
-            //$ts = date("d-m-Y - H:i", $_POST['date']);
-
-            //print($ts);
-
-
+            $ts = $_POST['date'];
             $strom = $_POST['strom'];
             $heizung = $_POST['heizung'];
             $wasser = $_POST['wasser'];
 
             $db = new SQLite3($dbFileName);
-            $db->exec("INSERT INTO energie VALUES ($ts,  $strom,  $heizung,  $wasser)");
+            $db->exec("INSERT INTO energie VALUES ('$ts',  $strom,  $heizung,  $wasser)");
             $msg = "Daten geschrieben!";
          }
     }
-
 
     echo getHTMLHeader("writePage");
     echo getNavi("write");
@@ -43,16 +37,16 @@
     </div>
 
     <div class="form-group">
-        <input type="Number" name="heizung" id="heizung" placeholder="heizung" />
+        <input type="Number" name="heizung" id="heizung" placeholder="Heizung" />
     </div>
 
     <div class="form-group">
-        <input type="Number" name="wasser" id="wasser" placeholder="wasser"/>
+        <input type="Number" name="wasser" id="wasser" placeholder="Wasser"/>
     </div>
 
     <div class="form-group">
-        <input type="text" name="date" id="date" placeholder="Datum" value=""/>
-        <input type="hidden" name="date_ts" id="date_ts" value=""/>
+        <input type="text" name="date" id="date" placeholder="Ablesedatum" value=""/>
+
     </div>
 
     <div class="form-group">

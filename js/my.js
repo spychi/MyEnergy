@@ -2,12 +2,11 @@ var myEnergy = {
 
     init: function init() {
         if( $("#homepage").length ) {
-          this.renderDiagram();
+          //this.renderDiagram();
         }
 
         if( $("#writePage").length ) {
             this.prefillDate();
-            this.handeWriteSubmit();
         }
     },
 
@@ -23,47 +22,16 @@ var myEnergy = {
             var h = formattedDate.getHours();
             var min = formattedDate.getMinutes();
 
-            dataInput.val(d + "." + m + "." + y + " " + h + ":" + min);
+            h = ((h < 10) ? "0" + h : h);
+            min = ((min < 10) ? "0" + min : min);
+
+            console.debug("H:" + h);
+            console.debug("min:" + min);
+
+            // YYYY-MM-DD HH:MM:SS.SSS
+            dataInput.val(y+"-"+m+"-"+d+" "+h+":"+min);
         }
     },
-
-
-    handeWriteSubmit: function handeWriteSubmit () {
-        $("#write").submit(function(event){
-            event.preventDefault();
-
-            var value = $("#date").val().split(" ");
-
-            //date
-            if(value[0] != undefined) {
-                var date = value[0].split(".");
-                var day = date[0];
-                var month = date[1];
-                var year = date[2];
-                if(year.length == 2 ) {year = "20" + date[2];}
-            }
-
-            //time
-            if(value[1] != undefined) {
-               var time = value[1].split(":");
-               var min = time[0];
-               var hours = time[1];
-            } else {
-                var min = 0;
-                var hours = 0;
-            }
-
-            var formattedDate = new Date(year, month-1, day, min, hours);
-            var ts = Math.round( formattedDate.getTime() / 1000);
-
-            console.debug(formattedDate);
-            console.debug(ts);
-            $("#date_ts").val(ts);
-
-            this.submit();
-        })
-    },
-
 
     renderDiagram: function renderDiagram () {
         //Get context with jQuery - using jQuery's .get() method.
