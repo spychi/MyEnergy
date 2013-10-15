@@ -32,18 +32,16 @@
             echo ("<p class='alert alert-success'><span class='glyphicon glyphicon-ok-sign'></span> $msg</p>");
         }
     ?>
-
-    <form action="?action=create_table" role="form" method="POST">
-        <div class="form-group">
-            <input type="submit" value="Table anlegen" class="btn btn-danger" />
-        </div>
-    </form>
     <form action="?action=drop_table" role="form" method="POST">
         <div class="form-group">
             <input type="submit" value="Table l&ouml;schen" class="btn btn-danger" />
         </div>
     </form>
-
+    <form action="?action=create_table" role="form" method="POST">
+        <div class="form-group">
+            <input type="submit" value="Table anlegen" class="btn btn-danger" />
+        </div>
+    </form>
 
 <?php
     echo getHTMLFooter();

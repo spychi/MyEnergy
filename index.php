@@ -17,8 +17,6 @@
 
 	while($res = $result->fetchArray(SQLITE3_ASSOC)){
 
-		//$datum = date("d-m-Y - H:i", $res['creationdate']);
-
 		$labels .= "'" .$res['creationdate'] . "', ";
 		$strom .= $res['electricity'] . ", ";
 		$heizung .= $res['heating'] . ", ";

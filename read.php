@@ -1,8 +1,6 @@
 <?php
     require_once("includes/main_library.php");
 
-    $msg = "";
-
     $db = new SQLite3($dbFileName);
     $sql = "SELECT * FROM energie ORDER BY creationdate";
     $result = $db->query($sql);
@@ -13,14 +11,12 @@
     while($res = $result->fetchArray(SQLITE3_ASSOC)) {
 
         $row[$i]['creationdate'] = $res['creationdate'];
-        $row[$i]['electricity'] = $res['electricity'];
-        $row[$i]['heating'] = $res['heating'];
-        $row[$i]['water'] = $res['water'];
+        $row[$i]['electricity'] = str_replace(".", ",", $res['electricity']);
+        $row[$i]['heating'] = str_replace(".", ",", $res['heating']);
+        $row[$i]['water'] = str_replace(".", ",", $res['water']);
 
         $i++;
     }
-
-
 
     echo getHTMLHeader("read");
     echo getNavi("read");
@@ -42,24 +38,20 @@
 
 	     <?php
 	         foreach ($row as $r) {
-
-	            //$datum = date("d-m-Y - H:i", $r['creationdate']);
-                $wasserGestern =  $r['water'];
-
-	            echo ("<tr>");
+                echo ("<tr>");
 	            echo ("<td>" . $r['creationdate'] . "</td>");
 	            echo ("<td>" . $r['electricity'] . "</td>");
 	            echo ("<td>" . $r['heating'] . "</td>");
 	            echo ("<td>" . $r['water'] . "</td>");
 	            echo ("</tr>");
-	        }
+             }
 	     ?>
 
 	      </tbody>
 	   </table>
    </div>
 
-
+</div>
 
 
 <?php
