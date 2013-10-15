@@ -7,8 +7,13 @@
             <html>
             <head>
                 <title>MyEnergy</title>
-                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link href="img/favicon.ico" rel="icon" type="image/x-icon">
+                <link rel="apple-touch-icon" href="img/apple-touch-icon-57x57.png">
+                <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+                <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+                <link rel="apple-touch-icon" sizes="144x144" href="img/apple-touch-icon-144x144.png">
                 <!-- Bootstrap -->
                 <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 
