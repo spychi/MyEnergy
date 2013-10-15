@@ -10,7 +10,7 @@
         if( $_GET['action'] == 'create_table' ){
 
             $db = new SQLite3($dbFileName);
-            $db->exec('CREATE TABLE energie (creationdate TEXT, electricity REAL, heating REAL, water REAL)');
+            $db->exec('CREATE TABLE energie (created DATETIME, creationdate TEXT, electricity REAL, heating REAL, water REAL)');
 
             $msg = "Table angelegt!";
 
