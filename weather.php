@@ -13,7 +13,7 @@ $myWeather = new Widget_Weather('myenergy', '0b49a5cdfe324fcef2958f5539197022', 
 $wetter = $myWeather->getForecast("DE0004130323");
 
 
-$tag = "2013-10-15";
+$tag = date("Y-m-d");
 
 // Morgens
 $uhrzeit[0] = "06:00";
@@ -33,7 +33,7 @@ $niederschlag[1] = $wetter["forecast"][$tag][$uhrzeit[1]]["tx"];
 
 // Abends
 $uhrzeit[2] = "17:00";
-$imgName[2] = "d_". $wetter["forecast"][$tag][$uhrzeit[2]]["w"] ."_L.png";
+$imgName[2] = "n_". $wetter["forecast"][$tag][$uhrzeit[2]]["w"] ."_L.png";
 $tempMax[2] = $wetter["forecast"][$tag][$uhrzeit[2]]["tx"];
 $tempMin[2] = $wetter["forecast"][$tag][$uhrzeit[2]]["tn"];
 $text[2] = $wetter["forecast"][$tag][$uhrzeit[2]]["w_txt"];

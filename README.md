@@ -13,3 +13,12 @@ Weitere Ausbaustufen:
 - Auswertung (Grafik) weiter bauen
 - Wetterdaten vom Ort per Wetter API und Cron-Job wegschreiben
 - Kosten für Wasser/Strom eingeben
+
+
+
+SELECT * FROM energie
+WHERE creationdate
+BETWEEN date('2013-04-01') AND date('2013-08-31');
+
+
+SELECT * FROM energie WHERE creationdate  = date('2013-04-01') ;

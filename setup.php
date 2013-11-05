@@ -11,6 +11,10 @@
             // YYYY-MM-DD HH:MM:SS.SSS
             $db->exec('CREATE TABLE energie (creationdate TEXT, electricity REAL, heating REAL, water REAL)');
 
+
+
+// CREATE  TABLE "main"."weather" ("creationdate" TEXT, "temperature" REAL, "description" TEXT, "WindSpeed" REAL, "sunrise" TEXT, "sunset" TEXT)
+
             $msg = "Table angelegt!";
 
         } else if( $_GET['action'] == 'drop_table'){

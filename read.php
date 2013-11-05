@@ -2,8 +2,11 @@
     require_once("includes/main_library.php");
 
     $db = new SQLite3($dbFileName);
-    $sql = "SELECT * FROM energie ORDER BY creationdate";
-    $result = $db->query($sql);
+    $result = $sql = "SELECT * FROM energie ORDER BY creationdate";
+
+    $rows = sqlite_num_rows($result);
+
+    echo ($rows);
 
     $row = array();
     $i = 0;

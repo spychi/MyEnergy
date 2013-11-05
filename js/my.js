@@ -2,7 +2,7 @@ var myEnergy = {
 
     init: function init() {
         if( $("#homepage").length ) {
-          //this.renderDiagram();
+          this.renderDiagram();
         }
 
         if( $("#writePage").length ) {

@@ -41,7 +41,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.php"><span class="glyphicon glyphicon-stats"></span> MyEnergy</a>
+            <a class="navbar-brand" href="wetter.php"><span class="glyphicon glyphicon-stats"></span> MyEnergy</a>
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
