@@ -14,7 +14,7 @@
             $wasser = $_POST['wasser'];
 
             $db = new SQLite3($dbFileName);
-            $db->exec("INSERT INTO energie VALUES ('$ts',  $strom,  $heizung,  $wasser)");
+            $db->exec("INSERT INTO energie (creationdate, electricity, heating, water) VALUES ('$ts', $strom, $heizung, $wasser)");
             $msg = "Daten geschrieben!";
          }
     }

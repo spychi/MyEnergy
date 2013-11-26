@@ -9,8 +9,12 @@
 
             $db = new SQLite3($dbFileName);
             // YYYY-MM-DD HH:MM:SS.SSS
-            $db->exec('CREATE TABLE energie (creationdate TEXT, electricity REAL, heating REAL, water REAL)');
-
+            $db->exec('CREATE TABLE energie (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                creationdate TEXT,
+                electricity REAL,
+                heating REAL,
+                water REAL)');
 
 
 // CREATE  TABLE "main"."weather" ("creationdate" TEXT, "temperature" REAL, "description" TEXT, "WindSpeed" REAL, "sunrise" TEXT, "sunset" TEXT)
