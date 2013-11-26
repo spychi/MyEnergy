@@ -53,7 +53,7 @@
 <!--
 <canvas id="myChart" class="img-responsive" width="600" height="400"></canvas>
 -->
-
+<!--
 
     <div class="panel panel-default">
 
@@ -109,7 +109,7 @@
     </div>
 
     </div>
-
+-->
 
 <?php
     echo getHTMLFooter();

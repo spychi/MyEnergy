@@ -54,3 +54,45 @@
 
         return $tmp;
     }
+
+    function getWeatherData () {
+        $tmp = array();
+
+        // https://github.com/OnkelCino/Yahoo-Weather-API-PHP-class
+        $weather = new YahooWeather(26822567, 'c');
+
+
+        $tmp['ts'] = $weather->getLastUpdated($date_format = 'Y-m-d G:i');
+        $tmp['temperature']  = $weather->getTemperature($showunit = false);
+        $tmp['description']  = $weather->getDescription();
+        $tmp['windSpeed']    = $weather->getWindSpeed($showunit = false, $decimals = 0, $separator = ',');
+        $tmp['sunrise']      = $weather->getSunrise($time_format = 'G:i');
+        $tmp['sunset']       = $weather->getSunset($time_format = 'G:i');
+        $tmp['conditionCode']= $weather->getConditionCode();
+        $tmp['locationCity']= $weather->getLocationCity();
+
+
+        return $tmp;
+    }
+
+    function writeWeatherDataInDB ($weatherData) {
+
+        $dbFileName = "db/database.sqlite";
+
+        $ts = $weatherData['ts'];
+        $temperature = $weatherData['temperature'];
+        $description = $weatherData['description'];
+        $windSpeed = $weatherData['windSpeed'];
+        $sunrise = $weatherData['sunrise'];
+        $unset = $weatherData['sunset'];
+
+        $db = new SQLite3($dbFileName);
+        $count = $db->querySingle("select COUNT(*) as count FROM weather where creationdate = '$ts'");
+
+        if (true) {
+            $db->exec("INSERT INTO weather VALUES ('$ts', $temperature, '$description', '$windSpeed', '$sunrise', '$unset')");
+            return ("Daten geschrieben!");
+        } else {
+            return ("Daten NICHT geschrieben!");
+        }
+    }

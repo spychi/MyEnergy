@@ -1,124 +1,78 @@
 <?php
-
     require_once("includes/main_library.php");
 
-    echo getHTMLHeader("weather");
+    echo getHTMLHeader("writePage");
     echo getNavi("weather");
 
-
-$myWeather = new Widget_Weather('myenergy', '0b49a5cdfe324fcef2958f5539197022', 'json');
-//$searchResult = $myWeather->search("DE0004130323");
-//$weatherInformation = $myWeather->getForecast($searchResult);
-
-$wetter = $myWeather->getForecast("DE0004130323");
-
-
-$tag = date("Y-m-d");
-
-// Morgens
-$uhrzeit[0] = "06:00";
-$imgName[0] = "d_". $wetter["forecast"][$tag][$uhrzeit[0]]["w"] ."_L.png";
-$tempMax[0] = $wetter["forecast"][$tag][$uhrzeit[0]]["tx"];
-$tempMin[0] = $wetter["forecast"][$tag][$uhrzeit[0]]["tn"];
-$text[0] = $wetter["forecast"][$tag][$uhrzeit[0]]["w_txt"];
-$niederschlag[0] = $wetter["forecast"][$tag][$uhrzeit[0]]["tx"];
-
-// Mittags
-$uhrzeit[1] = "11:00";
-$imgName[1] = "d_". $wetter["forecast"][$tag][$uhrzeit[1]]["w"] ."_L.png";
-$tempMax[1] = $wetter["forecast"][$tag][$uhrzeit[1]]["tx"];
-$tempMin[1] = $wetter["forecast"][$tag][$uhrzeit[1]]["tn"];
-$text[1] = $wetter["forecast"][$tag][$uhrzeit[1]]["w_txt"];
-$niederschlag[1] = $wetter["forecast"][$tag][$uhrzeit[1]]["tx"];
-
-// Abends
-$uhrzeit[2] = "17:00";
-$imgName[2] = "n_". $wetter["forecast"][$tag][$uhrzeit[2]]["w"] ."_L.png";
-$tempMax[2] = $wetter["forecast"][$tag][$uhrzeit[2]]["tx"];
-$tempMin[2] = $wetter["forecast"][$tag][$uhrzeit[2]]["tn"];
-$text[2] = $wetter["forecast"][$tag][$uhrzeit[2]]["w_txt"];
-$niederschlag[2] = $wetter["forecast"][$tag][$uhrzeit[2]]["tx"];
-
-//Nachts
-$uhrzeit[3] = "23:00";
-$imgName[3] = "n_". $wetter["forecast"][$tag][$uhrzeit[3]]["w"] ."_L.png";
-$tempMax[3] = $wetter["forecast"][$tag][$uhrzeit[3]]["tx"];
-$tempMin[3] = $wetter["forecast"][$tag][$uhrzeit[3]]["tn"];
-$text[3] = $wetter["forecast"][$tag][$uhrzeit[3]]["w_txt"];
-$niederschlag[3] = $wetter["forecast"][$tag][$uhrzeit[3]]["tx"];
-
-
-
-# <du> UTC Zeit (Unix Timestamp)
-# <d> Lokale Zeit (Unix Timestamp)
-# <dhu> UTC Zeit (ISO 8601)
-# <dhl> Lokale Zeit (ISO 8601)
-# <p> Gueltigkeitszeitraum der Prognose
-# <w> Code fuer den Wetterzustand
-# <pc> Niederschlagswahrscheinlichkeit in %
-# <tn> Minimaltemperatur in Grad Celsius
-# <tx> Maximaltemperatur in Grad Celsius
-# <wd> Windrichtung in Grad
-# <ws> Windgeschwindigkeit in km/h
-# <w_txt> Wetter in Textform
-# <wd_txt> Windrichtung Text
+    $weatherData = getWeatherData();
 ?>
 
+<table>
+    <tr>
+        <td>Datum</td>
+        <td><?php echo ($weatherData['ts']); ?> Uhr</td>
+    </tr>
+    <tr>
+        <td>Temeratur</td>
+        <td><?php echo ($weatherData['temperature']); ?>&deg;C</td>
+    </tr>
+    <tr>
+        <td>Beschreibung</td>
+        <td><?php echo ($weatherData['description']); ?></td>
+    </tr>
+    <tr>
+        <td>Windgeschwindigkeit</td>
+        <td><?php echo ($weatherData['windSpeed']); ?> km/h</td>
+    </tr>
+    <tr>
+        <td>Sonnenaufgang</td>
+        <td><?php echo ($weatherData['sunrise']); ?> Uhr</td>
+    </tr>
+    <tr>
+        <td>Sonnenuuntergang</td>
+        <td><?php echo ($weatherData['sunset']); ?> Uhr</td>
+    </tr>
+    <tr>
+        <td>conditionCode</td>
+        <td><?php echo ($weatherData['conditionCode']); ?></td>
+    </tr>
+    <tr>
+        <td>locationCity</td>
+        <td><?php echo ($weatherData['locationCity']); ?></td>
+    </tr>
 
 
+</table>
 
-<div class="panel panel-default">
 
-    <div class="panel-heading">Wetter heute</div>
-    <table class="table">
-        <thead>
-        <tr>
-            <th></th>
-            <th>Morgens</th>
-            <th>Mittags</th>
-            <th>Abends</th>
-            <th>Nachts</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>Bild</td>
-            <td><img src="img/wetter.com/<?php echo $imgName[0] ?>" alt="" /></td>
-            <td><img src="img/wetter.com/<?php echo $imgName[1] ?>" alt="" /></td>
-            <td><img src="img/wetter.com/<?php echo $imgName[2] ?>" alt="" /></td>
-            <td><img src="img/wetter.com/<?php echo $imgName[3] ?>" alt="" /></td>
-        </tr>
-        <tr>
-            <td>Text</td>
-            <td><?php echo($text[0]); ?></td>
-            <td><?php echo($text[1]); ?></td>
-            <td><?php echo($text[2]); ?></td>
-            <td><?php echo($text[3]); ?></td>
-        </tr>
-        <tr>
-            <td>Temeratur max (°C)</td>
-            <td><?php echo($tempMax[0]); ?></td>
-            <td><?php echo($tempMax[1]); ?></td>
-            <td><?php echo($tempMax[2]); ?></td>
-            <td><?php echo($tempMax[3]); ?></td>
-        </tr>
-        <tr>
-            <td>Temeratur min (°C)</td>
-            <td><?php echo($tempMin[0]); ?></td>
-            <td><?php echo($tempMin[1]); ?></td>
-            <td><?php echo($tempMin[2]); ?></td>
-            <td><?php echo($tempMin[3]); ?></td>
-        </tr>
-        <tr>
-            <td>Regen</td>
-            <td><?php echo($niederschlag[0]); ?></td>
-            <td><?php echo($niederschlag[1]); ?></td>
-            <td><?php echo($niederschlag[2]); ?></td>
-            <td><?php echo($niederschlag[3]); ?></td>
-        </tr>
-    </tbody>
-    </table>
-</div>
+<style>
+    #weatherBox {
+        color:#fff;
+        font-size: 60px;
+        padding: 20px;
+
+        border: 4px solid #000;
+
+        background: #959595; /* Old browsers */
+        background: -moz-linear-gradient(top,  #959595 0%, #0d0d0d 46%, #010101 50%, #0a0a0a 53%, #4e4e4e 76%, #383838 87%, #1b1b1b 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#959595), color-stop(46%,#0d0d0d), color-stop(50%,#010101), color-stop(53%,#0a0a0a), color-stop(76%,#4e4e4e), color-stop(87%,#383838), color-stop(100%,#1b1b1b)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top,  #959595 0%,#0d0d0d 46%,#010101 50%,#0a0a0a 53%,#4e4e4e 76%,#383838 87%,#1b1b1b 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top,  #959595 0%,#0d0d0d 46%,#010101 50%,#0a0a0a 53%,#4e4e4e 76%,#383838 87%,#1b1b1b 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top,  #959595 0%,#0d0d0d 46%,#010101 50%,#0a0a0a 53%,#4e4e4e 76%,#383838 87%,#1b1b1b 100%); /* IE10+ */
+        background: linear-gradient(to bottom,  #959595 0%,#0d0d0d 46%,#010101 50%,#0a0a0a 53%,#4e4e4e 76%,#383838 87%,#1b1b1b 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#959595', endColorstr='#1b1b1b',GradientType=0 ); /* IE6-9 */
+
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        border-radius: 20px;
+    }
+</style>
+
+
+<span id="weatherBox" class="night sun">
+    <?php echo ($weatherData['temperature']); ?>&deg;C
+</span>
+
 
 <?php
     echo getHTMLFooter();

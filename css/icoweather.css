@@ -1,0 +1,98 @@
+@font-face {
+	font-family: 'icoweather';
+	src: url('../fonts/icoweather.eot');
+	src: url('../fonts/icoweather.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/icoweather.svg#icoweather') format('svg'),
+		url('../fonts/icoweather.woff') format('woff'),
+		url('../fonts/icoweather.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+	font-family: 'icoweather';
+	content: attr(data-icon);
+	speak: none;
+}
+
+/* Use the following CSS code if you want to have a class per icon */
+.sun:before, .moon:before, .cloud:before, .cloudy:before, .cloud_sun:before, .cloud_moon:before, .cloudy_sun:before, .cloudy_moon:before, .fog:before, .dust:before, .rain:before, .drizle:before, .sleet:before, .hail:before, .snow:before, .heavy_snow:before, .lightning:before, .storm:before, .thunderstorm:before, .blustery:before, .wind:before, .hurricane:before, .hot:before, .cold:before  {
+	font-family: 'icoweather';
+	font-style: normal;
+	speak: none;
+    font-size: 60px;
+    color: #999;
+}
+.sun:before {
+	content: "\21";
+}
+.moon:before {
+	content: "\22";
+}
+.cloud:before {
+	content: "\23";
+}
+.cloudy:before {
+	content: "\24";
+}
+.cloud_sun:before {
+	content: "\25";
+}
+.cloud_moon:before {
+	content: "\26";
+}
+.cloudy_sun:before {
+	content: "\27";
+}
+.cloudy_moon:before {
+	content: "\28";
+}
+.fog:before {
+	content: "\29";
+}
+.dust:before {
+	content: "\30";
+}
+.rain:before {
+	content: "\31";
+}
+.drizle:before {
+	content: "\32";
+}
+.sleet:before {
+	content: "\33";
+}
+.hail:before {
+	content: "\34";
+}
+.snow:before {
+	content: "\35";
+}
+.heavy_snow:before {
+	content: "\36";
+}
+.lightning:before {
+	content: "\37";
+}
+.storm:before {
+	content: "\38";
+}
+.thunderstorm:before {
+	content: "\39";
+}
+.blustery:before {
+	content: "\40";
+}
+.wind:before {
+	content: "\41";
+}
+.hurricane:before {
+	content: "\42";
+}
+.hot:before {
+	content: "\43";
+}
+.cold:before {
+	content: "\44";
+}

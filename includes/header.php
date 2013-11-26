@@ -16,6 +16,7 @@
                 <link rel="apple-touch-icon" sizes="144x144" href="img/apple-touch-icon-144x144.png">
                 <!-- Bootstrap -->
                 <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+                <link href="css/icoweather.css" rel="stylesheet" media="screen">
 
                 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
                 <!--[if lt IE 9]>
